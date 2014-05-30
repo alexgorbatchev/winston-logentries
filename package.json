@@ -1,0 +1,40 @@
+{
+  "name": "winston-logentries",
+  "version": "0.0.1",
+  "description": "Awesome module",
+  "keywords": [],
+  "homepage": "https://github.com/alexgorbatchev/winston-logentries",
+  "bugs": "https://github.com/alexgorbatchev/winston-logentries/issues",
+  "author": {
+    "name": "Alex Gorbatchev",
+    "email": "",
+    "url": "https://github.com/alexgorbatchev"
+  },
+  "main": "./lib/winston-logentries.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexgorbatchev/winston-logentries.git"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/*.spec.coffee",
+    "pretest": "./node_modules/.bin/coffee --bare --output ./lib --compile ./src/*.coffee"
+  },
+  "dependencies": {
+    "logentries": "^1.0.1"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "coffee-errors": "^0.8.5",
+    "coffee-script": "^1.7.1",
+    "logentries": "^1.0.0",
+    "mocha": "^1.18.2",
+    "sinon": "^1.9.1",
+    "sinon-chai": "^2.5.0",
+    "winston": "^0.7.3"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">=1.2.10"
+  },
+  "license": "MIT"
+}
