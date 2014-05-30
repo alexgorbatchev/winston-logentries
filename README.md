@@ -22,7 +22,7 @@ This is a [winston] transport for the [logentries.com] logging service.
       tranports: [
         new winston.transports.Logentries({token: 'YOUR_TOKEN'})
       ]
-    })
+    });
 
 ## Testing
 

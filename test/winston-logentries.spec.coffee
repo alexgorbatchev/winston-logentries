@@ -2,7 +2,6 @@ require 'coffee-errors'
 
 chai = require 'chai'
 winston = require 'winston'
-logentries = require 'logentries'
 sinon = require 'sinon'
 {Logentries} = require '../src/winston-logentries'
 
@@ -11,19 +10,18 @@ chai.use require 'sinon-chai'
 
 describe 'Logentries', ->
   logger = null
-  service = null
+  transport = null
 
   beforeEach ->
-    service = logentries.logger token: ''
-    transport = new Logentries service
+    transport = new Logentries token: ''
     logger = new winston.Logger transports: [transport]
 
-    sinon.spy service, 'log'
+    sinon.spy transport.logentries, 'log'
 
   it 'calls service `log` method without meta', ->
     logger.info 'hello!'
-    expect(service.log).to.have.been.calledWith 'info', 'hello!'
+    expect(transport.logentries.log).to.have.been.calledWith 'info', 'hello!'
 
   it 'calls service `log` method with meta', ->
     logger.info 'hello!', foo: 123
-    expect(service.log).to.have.been.calledWith 'info', 'hello! {"foo":123}'
+    expect(transport.logentries.log).to.have.been.calledWith 'info', 'hello! {"foo":123}'
