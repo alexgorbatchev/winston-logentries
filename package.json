@@ -1,8 +1,12 @@
 {
   "name": "winston-logentries",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "This is a [winston] transport for the [logentries.com] logging service.",
-  "keywords": ["winston", "plugin", "logentries"],
+  "keywords": [
+    "winston",
+    "plugin",
+    "logentries"
+  ],
   "homepage": "https://github.com/alexgorbatchev/winston-logentries",
   "bugs": "https://github.com/alexgorbatchev/winston-logentries/issues",
   "author": {
