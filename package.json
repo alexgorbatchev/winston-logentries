@@ -1,13 +1,12 @@
 {
   "name": "winston-logentries",
   "version": "0.0.1",
-  "description": "Awesome module",
-  "keywords": [],
+  "description": "This is a [winston] transport for the [logentries.com] logging service.",
+  "keywords": ["winston", "plugin", "logentries"],
   "homepage": "https://github.com/alexgorbatchev/winston-logentries",
   "bugs": "https://github.com/alexgorbatchev/winston-logentries/issues",
   "author": {
     "name": "Alex Gorbatchev",
-    "email": "",
     "url": "https://github.com/alexgorbatchev"
   },
   "main": "./lib/winston-logentries.js",
