@@ -1,6 +1,6 @@
 {
   "name": "winston-logentries",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a [winston] transport for the [logentries.com] logging service.",
   "keywords": [
     "winston",
