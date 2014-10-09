@@ -11,24 +11,20 @@ class Logentries extends winston.Transport
     @logentries.level @level
 
   log: (level, msg, meta, callback) ->
-    level = @remapLevels level;
+    level = @remapLevels level
 
     if meta?
       meta = JSON.stringify meta
       meta = if meta is '{}' then '' else " #{meta}"
+
     data = msg + meta
     @logentries.log level, data
     callback null, true
 
   remapLevels: (level) ->
-    if level == 'warn'
-      return 'warning'
-
-    if level == 'error'
-      return 'err'
-
+    return 'warning' if level is 'warn'
+    return 'err' if level is 'error'
     level
-
 
 winston.transports.Logentries = Logentries
 
