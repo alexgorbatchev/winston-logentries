@@ -25,3 +25,11 @@ describe 'Logentries', ->
   it 'calls service `log` method with meta', ->
     logger.info 'hello!', foo: 123
     expect(transport.logentries.log).to.have.been.calledWith 'info', 'hello! {"foo":123}'
+
+  it 'calls `log` method with `warning` level which has been translated from  `warn`', ->
+    logger.warn 'hello!', foo: 123
+    expect(transport.logentries.log).to.have.been.calledWith 'warning', 'hello! {"foo":123}'
+
+  it 'calls `log` method with `err` level which has been translated from  `error`', ->
+    logger.error 'hello!', foo: 123
+    expect(transport.logentries.log).to.have.been.calledWith 'err', 'hello! {"foo":123}'
