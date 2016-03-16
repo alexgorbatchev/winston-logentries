@@ -26,14 +26,14 @@
     "logentries": "^1.0.1"
   },
   "devDependencies": {
-    "chai": "^1.9.1",
+    "chai": "^3.5.0",
     "coffee-errors": "^0.8.5",
     "coffee-script": "^1.7.1",
     "logentries": "^1.0.0",
-    "mocha": "^1.18.2",
+    "mocha": "^2.4.5",
     "sinon": "^1.9.1",
     "sinon-chai": "^2.5.0",
-    "winston": "^0.7.3"
+    "winston": "^2.2.0"
   },
   "engines": {
     "node": ">=0.10.0",

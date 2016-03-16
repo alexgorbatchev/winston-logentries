@@ -1,3 +1,4 @@
+logentries = require 'logentries'
 require 'coffee-errors'
 
 chai = require 'chai'
@@ -8,7 +9,48 @@ sinon = require 'sinon'
 expect = chai.expect
 chai.use require 'sinon-chai'
 
-describe 'Logentries', ->
+describe 'Logentries options', ->
+  spy = sinon.spy logentries, "logger"
+  i = 0
+
+  it 'can set token', ->
+    transport = new Logentries token: 'test'
+    expect(spy.args[i][0].token).to.equal "test"
+    i++
+
+  it 'defaults to secure transport', ->
+    transport = new Logentries token: ''
+    expect(spy.args[i][0].secure).to.equal true
+    i++
+
+  it 'can use insecure transport', ->
+    transport = new Logentries token: '', secure: false
+    expect(spy.args[i][0].secure).to.equal false
+    i++
+
+  it 'adopts log levels from winston', ->
+    transport = new Logentries token: '', secure: false
+    expect(transport.logentries.levels).to.be.equal winston.levels
+    i++
+
+  it 'defaults to level `info`', ->
+    levels =
+      level0: 0
+      level1: 1
+    transport = new Logentries token: ''
+    expect(transport.level).to.equal "info"
+    i++
+
+  it 'can set custom levels', ->
+    levels =
+      level0: 0
+      level1: 1
+    transport = new Logentries token: '', level: "level0", levels: levels
+    expect(transport.level).to.equal "level0"
+    expect(spy.args[i][0].levels).to.equal levels
+    i++
+
+describe 'Logentries log levels', ->
   logger = null
   transport = null
 

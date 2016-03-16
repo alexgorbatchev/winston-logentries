@@ -14,15 +14,34 @@ This is a [winston] transport for the [logentries.com] logging service.
     npm install winston-logentries
 
 ## Usage Example
+```js
+var winston = require('winston');
+var Logentries = require('winston-logentries');
 
-    var winston = require('winston');
-    var Logentries = require('winston-logentries');
+var logger = new winston.Logger({
+  transports: [
+    new winston.transports.Logentries({token: 'YOUR_TOKEN'})
+  ]
+});
+```
 
-    var logger = new winston.Logger({
-      transports: [
-        new winston.transports.Logentries({token: 'YOUR_TOKEN'})
-      ]
-    });
+## Options
+
+**token** *string*
+
+Logentries token
+
+**secure** *bool*
+
+Whether to use secure connection to Logentries.  Defaults to `true`.
+
+**level** *string*
+
+Minimum level to log to Logentries.  Defaults to `"info"`.
+
+**levels** *map*
+
+Custom log levels.  Defaults to `winston.levels`.
 
 ## Testing
 
