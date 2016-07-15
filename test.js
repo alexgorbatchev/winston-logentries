@@ -60,10 +60,19 @@ describe('winston-logentries', () => {
     let transport = null;
 
     beforeEach(() => {
-      transport = new Logentries({ token: '' });
+      transport = new Logentries({
+        token: '',
+        level: 'silly',
+        levels: { error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 },
+      });
       logger = new winston.Logger({ transports: [ transport ] });
 
       sinon.spy(transport.logentries, 'log');
+    });
+
+    it('calls service `log` method without meta using own level', () => {
+      logger.silly('hello!');
+      expect(transport.logentries.log).to.have.been.calledWith('silly', 'hello!');
     });
 
     it('calls service `log` method without meta', () => {
